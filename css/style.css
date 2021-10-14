@@ -1,0 +1,62 @@
+body {
+    text-align: center;
+    margin: 0%;
+    padding: 0%;
+  
+    background-image: url("../img/fondo.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+/* Divs Grid */
+.parent {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 3; }
+    .div2 { grid-area: 1 / 3 / 2 / 5; }
+    .div3 { grid-area: 1 / 5 / 2 / 7; }
+    .div4 { grid-area: 2 / 1 / 10 / 7; }
+
+.div1,.div2,.div3{
+    background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,79,253,1) 100%);
+}
+
+.div4{
+    width: 100%;
+    height: 100%;
+}
+
+/* Elementos Flex */
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    }
+
+.flex-item:nth-child(1) {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: center;
+    }
+
+.menu{
+    background-color: white;
+    height: 70%;
+    width: 50%;
+}
+
+.info{
+    background-color: white;
+    height: 70%;
+    width: 60%;
+}
