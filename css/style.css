@@ -1,62 +1,247 @@
 body {
-    text-align: center;
-    margin: 0%;
-    padding: 0%;
-  
-    background-image: url("../img/fondo.png");
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
+  text-align: center;
+  margin: 0%;
+  padding: 0%;
+}
 
 /* Divs Grid */
 .parent {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    }
-    
-    .div1 { grid-area: 1 / 1 / 2 / 3; }
-    .div2 { grid-area: 1 / 3 / 2 / 5; }
-    .div3 { grid-area: 1 / 5 / 2 / 7; }
-    .div4 { grid-area: 2 / 1 / 10 / 7; }
-
-.div1,.div2,.div3{
-    background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(45,79,253,1) 100%);
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(7, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
 }
 
-.div4{
-    width: 100%;
-    height: 100%;
+.div1 {
+  grid-area: 1 / 1 / 2 / 3;
+}
+.div2 {
+  grid-area: 1 / 3 / 2 / 5;
+}
+.div3 {
+  grid-area: 1 / 5 / 2 / 7;
+}
+.div4 {
+  grid-area: 2 / 1 / 10 / 7;
+}
+
+.div1,
+.div2,
+.div3 {
+  background: rgb(34, 193, 195);
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 1) 0%,
+    rgba(45, 79, 253, 1) 100%
+  );
+}
+
+.div4 {
+  width: 100%;
+  height: 100%;
 }
 
 /* Elementos Flex */
 
 .flex-container {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: center;
-    align-items: center;
-    }
+  float: unset;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
 
 .flex-item:nth-child(1) {
-    order: 0;
-    flex: 0 1 auto;
-    align-self: center;
+  order: 0;
+  flex: 0 1 auto;
+  align-self: center;
+}
+
+.menu {
+  background-color: rgb(0, 215, 253);
+  height: 300px;
+  width: 40%;
+}
+
+.info {
+  background-color: rgb(0, 17, 255);
+  height: 300px;
+  width: 60%;
+}
+
+/* =============================================================================== */
+.gameStop {
+  background: url("../img/fondos/fondoGame.png") no-repeat;
+  background-size: cover;
+}
+
+/* MUNDO*/
+.highland {
+  width: 100%;
+  height: 100%;
+  background: url("../img/fondos/fondo.png") repeat-x;
+  background-size: contain;
+  animation: movebg 30s linear infinite;
+}
+.grass {
+  background: url("../img/fondos/piso.png") repeat-x;
+  position: relative;
+  background-size: contain;
+  height: 100px;
+  width: 100%;
+  top: 135px;
+  float: initial;
+  animation: movebg 2s linear infinite;
+}
+
+/* PERSONAJES */
+.sonic {
+  float: left;
+  width: 96px;
+  height: 114px;
+  margin: auto;
+  background-position: -112px;
+  background: url("../img/sprites/sonic/sonicCorriendo.png") repeat-x;
+
+  animation: walk 250ms steps(4) infinite;
+}
+
+/* clase auxiliar para probar comfiguraciones de sprite salto*/
+.sonic2 {
+  float: left;
+  width: 96px;
+  height: 114px;
+  margin: auto;
+  background-position: -112px;
+  background: url("../img/sprites/sonic/sonicSalto.png") repeat-x; /*cambia url img*/
+
+  animation: jump 250ms steps(5) infinite; /*cambia metodo keyframe y el steps*/
+}
+/* clase auxiliar para probar comfiguraciones de sprite espera*/
+.sonic3 {
+  float: left;
+  width: 92px;
+  height: 110px;
+  margin: auto;
+  background-position: -112px;
+  background: url("../img/sprites/sonic/sonicEsperando.png") repeat-x; /*cambia url img*/
+
+  animation: impatient 250ms steps(2) infinite; /*cambia metodo keyframe y el steps*/
+}
+
+.enemigo1 {
+  float: left;
+  width: 115px;
+  height: 123px;
+  margin: auto;
+  background-position: -112px;
+  background: url("../img/sprites/enemigos/enemigo1.png") repeat-x; /*cambia url img*/
+
+  animation: enemigo1 300ms steps(3) infinite; /*cambia metodo keyframe y el steps*/
+}
+
+.enemigo2 {
+    float: left;
+    width: 128px;
+    height: 92px;
+    margin: auto;
+    background-position: -112px;
+    background: url("../img/sprites/enemigos/enemigo2.png") repeat-x; /*cambia url img*/
+ 
+    animation: enemigo2 300ms steps(3) infinite; /*cambia metodo keyframe y el steps*/
+}
+
+.enemigo3 {
+    float: left;
+    width: 133px;
+    height: 88px;
+    margin: auto;
+    background-position: -112px;
+    background: url("../img/sprites/enemigos/enemigo3.png") repeat-x; /*cambia url img*/
+
+    animation: enemigo3 250ms steps(4) infinite; /*cambia metodo keyframe y el steps*/
+}
+
+
+.moneda {
+    float: left;
+    width: 88px;
+    height: 88px;
+    margin: auto;
+    background-position: -112px;
+    background: url("../img/sprites/entorno/moneda.png") repeat-x; /*cambia url img*/
+    background-size: cover;
+    animation: moneda 900ms steps(16) infinite; /*cambia metodo keyframe y el steps*/
+}
+
+@keyframes enemigo1 {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -346px;
+  }
+}
+@keyframes enemigo2 {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -386px;
+  }
+}
+@keyframes enemigo3 {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -532px;
+  }
+}
+
+@keyframes jump {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -480px;
+  }
+}
+
+@keyframes walk {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -384px;
+  }
+}
+
+@keyframes movebg {
+  0% {
+    background-position: 550px;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+@keyframes impatient {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -178px;
+  }
+}
+@keyframes moneda {
+    0% {
+      background-position: 0;
     }
-
-.menu{
-    background-color: white;
-    height: 70%;
-    width: 50%;
-}
-
-.info{
-    background-color: white;
-    height: 70%;
-    width: 60%;
-}
+    100% {
+      background-position: -1403px;
+    }
+  }
