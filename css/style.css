@@ -99,37 +99,22 @@ body {
 
 /* PERSONAJES */
 .sonic {
-  float: left;
   width: 96px;
   height: 114px;
   margin: auto;
-  background-position: -112px;
-  background: url("../img/sprites/sonic/sonicCorriendo.png") repeat-x;
+  position: relative;
+  top: 140px;
+}
 
+.walk {
+  background: url("../img/sprites/sonic/sonicCorriendo.png") repeat-x;
   animation: walk 250ms steps(4) infinite;
 }
 
 /* clase auxiliar para probar comfiguraciones de sprite salto*/
-.sonic2 {
-  float: left;
-  width: 96px;
-  height: 114px;
-  margin: auto;
-  background-position: -112px;
-  background: url("../img/sprites/sonic/sonicSalto.png") repeat-x; /*cambia url img*/
-
-  animation: jump 250ms steps(5) infinite; /*cambia metodo keyframe y el steps*/
-}
-/* clase auxiliar para probar comfiguraciones de sprite espera*/
-.sonic3 {
-  float: left;
-  width: 92px;
-  height: 110px;
-  margin: auto;
-  background-position: -112px;
-  background: url("../img/sprites/sonic/sonicEsperando.png") repeat-x; /*cambia url img*/
-
-  animation: impatient 250ms steps(2) infinite; /*cambia metodo keyframe y el steps*/
+.jump {
+  background: url("../img/sprites/sonic/sonicSalto.png") repeat-x;
+  animation: jump 1s steps(5) infinite;
 }
 
 .enemigo1 {
@@ -139,42 +124,39 @@ body {
   margin: auto;
   background-position: -112px;
   background: url("../img/sprites/enemigos/enemigo1.png") repeat-x; /*cambia url img*/
-
   animation: enemigo1 300ms steps(3) infinite; /*cambia metodo keyframe y el steps*/
 }
 
 .enemigo2 {
-    float: left;
-    width: 128px;
-    height: 92px;
-    margin: auto;
-    background-position: -112px;
-    background: url("../img/sprites/enemigos/enemigo2.png") repeat-x; /*cambia url img*/
- 
-    animation: enemigo2 300ms steps(3) infinite; /*cambia metodo keyframe y el steps*/
+  float: left;
+  width: 128px;
+  height: 92px;
+  margin: auto;
+  background-position: -112px;
+  background: url("../img/sprites/enemigos/enemigo2.png") repeat-x; /*cambia url img*/
+  animation: enemigo2 300ms steps(3) infinite; /*cambia metodo keyframe y el steps*/
 }
 
 .enemigo3 {
-    float: left;
-    width: 133px;
-    height: 88px;
-    margin: auto;
-    background-position: -112px;
-    background: url("../img/sprites/enemigos/enemigo3.png") repeat-x; /*cambia url img*/
+  float: left;
+  width: 133px;
+  height: 88px;
+  margin: auto;
+  background-position: -112px;
+  background: url("../img/sprites/enemigos/enemigo3.png") repeat-x; /*cambia url img*/
 
-    animation: enemigo3 250ms steps(4) infinite; /*cambia metodo keyframe y el steps*/
+  animation: enemigo3 250ms steps(4) infinite; /*cambia metodo keyframe y el steps*/
 }
 
-
 .moneda {
-    float: left;
-    width: 88px;
-    height: 88px;
-    margin: auto;
-    background-position: -112px;
-    background: url("../img/sprites/entorno/moneda.png") repeat-x; /*cambia url img*/
-    background-size: cover;
-    animation: moneda 900ms steps(16) infinite; /*cambia metodo keyframe y el steps*/
+  float: left;
+  width: 88px;
+  height: 88px;
+  margin: auto;
+  background-position: -112px;
+  background: url("../img/sprites/entorno/moneda.png") repeat-x; /*cambia url img*/
+  background-size: cover;
+  animation: moneda 900ms steps(16) infinite; /*cambia metodo keyframe y el steps*/
 }
 
 @keyframes enemigo1 {
@@ -204,10 +186,18 @@ body {
 
 @keyframes jump {
   0% {
+    top: 140px;
     background-position: 0;
+  }
+  30% {
+    top: 0px;
+  }
+  70% {
+    top: 0px;
   }
   100% {
     background-position: -480px;
+    top: 140px;
   }
 }
 
@@ -238,10 +228,10 @@ body {
   }
 }
 @keyframes moneda {
-    0% {
-      background-position: 0;
-    }
-    100% {
-      background-position: -1403px;
-    }
+  0% {
+    background-position: 0;
   }
+  100% {
+    background-position: -1403px;
+  }
+}
