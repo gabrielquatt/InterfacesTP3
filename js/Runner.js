@@ -1,11 +1,10 @@
-class Runner {
-  const 
+class Runner extends Character {
   constructor() {
-    this.character = document.getElementById("sonic");
+    super( document.getElementById("sonic"));
     this.run();
   }
 
-  run(){
+  run() {
     this.character.classList.add("walk");
   }
 

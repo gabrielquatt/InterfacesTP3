@@ -121,39 +121,37 @@ body {
   animation: jump 1s steps(5) infinite;
 }
 
+.enemigo {
+  position: absolute;
+  border: solid 3px red;
+  background-position: -112px;
+  bottom: 95px;
+  right: 0px;
+}
+
 .enemigo1 {
   width: 115px;
   height: 123px;
-  position: absolute;
-  border: solid 3px red;
-  bottom: 95px;
-  right: 0px;
-  background-position: -112px;
   background: url("../img/sprites/enemigos/enemigo1.png") repeat-x;
   animation: enemigo1 500ms steps(3) infinite, advance 4s forwards linear;
 }
 
-/* .enemigo2 {
-  float: left;
+.enemigo2 {
   width: 128px;
   height: 92px;
-  margin: auto;
-  background-position: -112px;
-  background: url("../img/sprites/enemigos/enemigo2.png") repeat-x; 
-  animation: enemigo2 300ms steps(3) infinite; 
+  background: url("../img/sprites/enemigos/enemigo2.png") repeat-x;
+  animation: enemigo2 500ms steps(3) infinite, advance 4s forwards linear;
 }
 
 .enemigo3 {
-  float: left;
+  bottom: 250px;
   width: 133px;
   height: 88px;
-  margin: auto;
-  background-position: -112px;
   background: url("../img/sprites/enemigos/enemigo3.png") repeat-x; 
-
-  animation: enemigo3 250ms steps(4) infinite; 
+  animation: enemigo3 500ms steps(4) infinite, advance 3s forwards linear; 
 }
 
+/*
 .moneda {
   float: left;
   width: 88px;
@@ -180,7 +178,6 @@ body {
   }
   to {
     left: -10%;
-
   }
 }
 

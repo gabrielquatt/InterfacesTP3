@@ -1,15 +1,14 @@
-class Enemy {
+class Enemy extends Character{
   constructor(type, id) {
-    this.element = document.createElement("div");
-    this.element.classList.add(type);
+    let element = document.createElement("div");
+    element.classList.add("enemigo");
+    element.classList.add(type);
+    super(element);
     this.id = id;
   }
 
-  container() {
-    return this.element;
+  getId() {
+    return this.idset;
   }
 
-  getId() {
-    return this.id;
-  }
 }
