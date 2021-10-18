@@ -40,6 +40,8 @@ body {
 .div4 {
   width: 100%;
   height: 100%;
+  border: solid 3px red;
+  position: relative;
 }
 
 /* Elementos Flex */
@@ -88,13 +90,13 @@ body {
 }
 .grass {
   background: url("../img/fondos/piso.png") repeat-x;
-  position: relative;
+  position: absolute;
   background-size: contain;
   height: 100px;
   width: 100%;
-  top: 135px;
+  bottom: 0px;
   float: initial;
-  animation: movebg 2s linear infinite;
+  animation: movebg 1s linear infinite;
 }
 
 /* PERSONAJES */
@@ -102,8 +104,10 @@ body {
   width: 96px;
   height: 114px;
   margin: auto;
-  position: relative;
-  top: 140px;
+  position: absolute;
+  bottom: 95px;
+  left: 100px;
+  border: solid 3px red;
 }
 
 .walk {
@@ -118,23 +122,25 @@ body {
 }
 
 .enemigo1 {
-  float: left;
   width: 115px;
   height: 123px;
-  margin: auto;
+  position: absolute;
+  border: solid 3px red;
+  bottom: 95px;
+  right: 0px;
   background-position: -112px;
-  background: url("../img/sprites/enemigos/enemigo1.png") repeat-x; /*cambia url img*/
-  animation: enemigo1 300ms steps(3) infinite; /*cambia metodo keyframe y el steps*/
+  background: url("../img/sprites/enemigos/enemigo1.png") repeat-x;
+  animation: enemigo1 500ms steps(3) infinite, advance 4s forwards linear;
 }
 
-.enemigo2 {
+/* .enemigo2 {
   float: left;
   width: 128px;
   height: 92px;
   margin: auto;
   background-position: -112px;
-  background: url("../img/sprites/enemigos/enemigo2.png") repeat-x; /*cambia url img*/
-  animation: enemigo2 300ms steps(3) infinite; /*cambia metodo keyframe y el steps*/
+  background: url("../img/sprites/enemigos/enemigo2.png") repeat-x; 
+  animation: enemigo2 300ms steps(3) infinite; 
 }
 
 .enemigo3 {
@@ -143,9 +149,9 @@ body {
   height: 88px;
   margin: auto;
   background-position: -112px;
-  background: url("../img/sprites/enemigos/enemigo3.png") repeat-x; /*cambia url img*/
+  background: url("../img/sprites/enemigos/enemigo3.png") repeat-x; 
 
-  animation: enemigo3 250ms steps(4) infinite; /*cambia metodo keyframe y el steps*/
+  animation: enemigo3 250ms steps(4) infinite; 
 }
 
 .moneda {
@@ -154,10 +160,10 @@ body {
   height: 88px;
   margin: auto;
   background-position: -112px;
-  background: url("../img/sprites/entorno/moneda.png") repeat-x; /*cambia url img*/
+  background: url("../img/sprites/entorno/moneda.png") repeat-x; 
   background-size: cover;
-  animation: moneda 900ms steps(16) infinite; /*cambia metodo keyframe y el steps*/
-}
+  animation: moneda 900ms steps(16) infinite; 
+} */
 
 @keyframes enemigo1 {
   0% {
@@ -167,6 +173,17 @@ body {
     background-position: -346px;
   }
 }
+
+@keyframes advance {
+  from {
+    left: 110%;
+  }
+  to {
+    left: -10%;
+
+  }
+}
+
 @keyframes enemigo2 {
   0% {
     background-position: 0;
@@ -189,11 +206,17 @@ body {
     top: 140px;
     background-position: 0;
   }
-  30% {
-    top: 0px;
+  20% {
+    top: -50px;
   }
-  70% {
-    top: 0px;
+  40% {
+    top: -90px;
+  }
+  60% {
+    top: -90px;
+  }
+  80% {
+    top: -50px;
   }
   100% {
     background-position: -480px;
