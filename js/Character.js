@@ -10,6 +10,7 @@ class Character {
 
   status() {
     return this.character.getBoundingClientRect();
-  
   }
+  
+  stop(){}
 }

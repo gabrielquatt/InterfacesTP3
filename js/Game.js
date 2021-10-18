@@ -9,14 +9,19 @@ class Game {
     this.enemyCount = 0;
     this.gameContainer = document.getElementById("gameContainer");
     this.score = document.getElementById("score");
+    this.loop;
+    this.ringLoop;
+    this.enemyLoop;
+    this.enemyWait;
+    this.ringWait;
   }
 
   init() {
     this.gameContainer.appendChild(this.runner.container());
     this.updateScore();
-    setInterval(this.addEnemy.bind(this), 1000); // loop para crear enemigos
-    setInterval(this.addRing.bind(this), 1000); // loop para crear monedas
-    setInterval(this.gameLoop.bind(this), 20); // loop para controlar estado del juego
+    this.enemyLoop = setInterval(this.addEnemy.bind(this), 1000); // loop para crear enemigos
+    this.ringLoop = setInterval(this.addRing.bind(this), 1000); // loop para crear monedas
+    this.loop = setInterval(this.gameLoop.bind(this), 20); // loop para controlar estado del juego
   }
 
   gameLoop() {
@@ -26,9 +31,7 @@ class Game {
     this.rings.forEach((ring) => {
       let ringStatus = ring.status();
       if (this.detectCollision(runnerStatus, ringStatus)) {
-        this.updateScore();
-        this.gameContainer.removeChild(ring.container());
-        this.rings.splice(0, 1);
+        this.collectCoin(ring);
       }
     });
 
@@ -42,8 +45,14 @@ class Game {
     }
   }
 
+  // TODO animacion de recoleccion de anillo
+  collectCoin(ring) {
+    this.updateScore();
+    this.gameContainer.removeChild(ring.container());
+    this.rings.splice(0, 1);
+  }
+
   /**
-   * https://stackoverflow.com/questions/9768291/check-collision-between-certain-divs
    * @param {*} run div 1
    * @param {*} elem div 2
    * @returns superposicion entre dos divs
@@ -54,8 +63,18 @@ class Game {
     return h && v;
   }
 
+  // TODO animacion de muerte, frenar fondo
   lost() {
     console.log("lost");
+    clearInterval(this.loop);
+    clearInterval(this.ringLoop);
+    clearInterval(this.enemyLoop);
+    clearTimeout(this.enemyWait);
+    clearTimeout(this.ringWait);
+
+    this.enemies.forEach((enemy) => enemy.stop());
+    this.rings.forEach((ring) => ring.stop());
+    // this.runner.stop();
   }
 
   updateScore() {
@@ -69,7 +88,7 @@ class Game {
       let max = 10;
       let res = parseInt(Math.random() * (max - min) + min);
 
-      setTimeout(() => {
+      this.ringWait = setTimeout(() => {
         this.makeRing();
       }, res * 1000);
     }
@@ -93,7 +112,7 @@ class Game {
       let max = 3;
       let res = parseInt(Math.random() * (max - min) + 1);
 
-      setTimeout(() => {
+      this.enemyWait = setTimeout(() => {
         this.makeEnemy();
       }, res * 1000);
     }
