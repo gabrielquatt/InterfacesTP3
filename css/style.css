@@ -112,7 +112,7 @@ body {
 
 .walk {
   background: url("../img/sprites/sonic/sonicCorriendo.png") repeat-x;
-  animation: walk 250ms steps(4) infinite;
+  animation: walk 300ms steps(4) infinite;
 }
 
 /* clase auxiliar para probar comfiguraciones de sprite salto*/
@@ -121,12 +121,19 @@ body {
   animation: jump 1s steps(5) forwards;
 }
 
-.enemigo {
+.elemento {
   position: absolute;
   border: solid 3px red;
   background-position: -112px;
-  bottom: 95px;
   right: 0px;
+}
+
+.aereo{
+  bottom: 250px;
+}
+
+.terrestre{
+  bottom: 95px;
 }
 
 .enemigo1 {
@@ -144,24 +151,19 @@ body {
 }
 
 .enemigo3 {
-  bottom: 250px;
   width: 133px;
   height: 88px;
   background: url("../img/sprites/enemigos/enemigo3.png") repeat-x; 
   animation: enemigo3 500ms steps(4) infinite, advance 3s forwards linear; 
 }
 
-/*
 .moneda {
-  float: left;
   width: 88px;
   height: 88px;
-  margin: auto;
-  background-position: -112px;
   background: url("../img/sprites/entorno/moneda.png") repeat-x; 
   background-size: cover;
-  animation: moneda 900ms steps(16) infinite; 
-} */
+  animation: moneda 900ms steps(16) infinite, advance 5s forwards linear; 
+} 
 
 @keyframes enemigo1 {
   0% {
@@ -179,6 +181,10 @@ body {
   to {
     left: -10%;
   }
+}
+
+::-webkit-scrollbar {
+	display: none;
 }
 
 @keyframes enemigo2 {
