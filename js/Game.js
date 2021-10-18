@@ -1,41 +1,24 @@
 class Game {
   constructor() {
     this.runner = new Runner();
-    this.jump = false;
     this.isMakeEnemy = false;
+    this.isMakeCoin = false;
     this.enemies = [];
     this.enemyCount = 0;
     this.gameContainer = document.getElementById("gameContainer");
   }
 
   init() {
-    window.addEventListener("keydown", (e) => {
-      if (!this.jump) {
-        if (e.keyCode === 38) {
-          this.runner.jump();
-          this.jump = true;
-        }
-      }
-    });
-  
-    window.addEventListener("keyup", (e) => {
-      if (e.keyCode === 38) {
-        this.jump = false;
-      }
-    });
-
     this.gameContainer.appendChild(this.runner.container());
     setInterval(this.addEnemy.bind(this), 1000); // loop para crear enemigos
-
+    setInterval(this.addCoin.bind(this), 1000); // loop para crear monedas
     setInterval(this.gameLoop.bind(this), 20); // loop para controlar estado del juego
   }
 
   gameLoop() {
     let runnerStatus = this.runner.status();
-
     this.enemies.forEach((enemy) => {
       let enemyStatus = enemy.status();
-
       if (
         enemyStatus.left < runnerStatus.right &&
         enemyStatus.left > runnerStatus.left &&
@@ -49,6 +32,8 @@ class Game {
   lost() {
     console.log("lost");
   }
+
+  addCoin() {}
 
   addEnemy() {
     if (!this.isMakeEnemy) {
@@ -67,14 +52,14 @@ class Game {
   makeEnemy() {
     let type = "enemigo";
     type += parseInt(Math.random() * 3) + 1;
-    console.log(type);
     let enemy = new Enemy(type, this.enemyCount);
     this.enemies.push(enemy);
     this.enemyCount++;
     this.gameContainer.appendChild(enemy.container());
+
     enemy.container().addEventListener("animationend", () => {
       this.gameContainer.removeChild(enemy.container());
-      this.enemies.splice(0, 1);
+      this.enemies.splice(this.enemies.indexOf(enemy), 1);
     });
   }
 }

@@ -118,7 +118,7 @@ body {
 /* clase auxiliar para probar comfiguraciones de sprite salto*/
 .jump {
   background: url("../img/sprites/sonic/sonicSalto.png") repeat-x;
-  animation: jump 1s steps(5) infinite;
+  animation: jump 1s steps(5) forwards;
 }
 
 .enemigo {
