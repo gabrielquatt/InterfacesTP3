@@ -60,7 +60,6 @@ let btn_close = document.getElementById("btn_close").addEventListener('click', (
       alert("Time Lost");
     }else{
       setTimeout(()=>{
-        console.log(t);
         funcionando();
       },1000);
     }
