@@ -14,45 +14,74 @@
     <div class="parent">
         <!-- header game-->
         <div class="div1">
-            <h1>Score</h1>
+            <h1>Puntuacion: </h1>
         </div>
         <div class="div2">
-            <h1>Timer 00:00</h1>
+            <div>
+                <div id="timer">
+                    <h1>30</h1>
+                </div>
+            </div>
         </div>
         <div class="div3">
-            <h1>Timer Total</h1>
+            <div>
+                <h1 id="Mone_Recolec"></h1>
+            </div>
         </div>
         <!-- /header game -->
+
         <!-- Game -->
-        <div id="gameContainer" class="div4 flex-container gameStop">
-            
+        <div id="gameContainer" class="div4 flex-container gameStop gameContainer">
+            <div id="highland" class="highland"></div>
+
             <!-- menu/info -->
             <div id="menu" class="flex-item menu">
-                <button id="btn_info">info</button>
-                <button id="btn_start">start</button>
+                <img src="img/logo.png" alt="logo">
+                <div class="menu__button">
+                    <button id="btn_info">Como Jugar❓</button>
+                </div>
+                <div class="menu__button">
+                    <button id="btn_start">Comenzar🎮</button>
+                </div>
+                <div id="sonicEspera" class="sonicMenu impatient"></div>
             </div>
             <div id="info" class="flex-item info">
-                <button id="btn_close">close</button>
+                <p>El Juego consiste en evitar los enemigo que apareceran en pantalla
+                    y coleccionar la mayor cantidad de monedas posibles.</p>
+                    <div>
+                        <img class="infoImg" src="img/sprites/enemigo1.png" alt="enemigo1">
+                        <img class="infoImg" src="img/sprites/enemigo2.png" alt="enemigo2">
+                        <img class="infoImg" src="img/sprites/enemigo3.png" alt="enemigo3">
+                    </div>
+                <p>Cada Moneda sumara +10 Segundo al tiempo, una vez que el contador llegue a 00:00
+                    se perdera automaticamente.</p>
+                    <div>
+                        <img class="infoImgMoneda" src="img/sprites/moneda.png" alt="moneda">
+                    </div>
+                <p>Para saltar puede pulsar la flecha hacia arriba ⬆ o la Barra Espaciadora ⇌ del teclado.</p>
+                <button id="btn_close">cerrar</button>
             </div>
-            
             <!-- /menu/info -->
-           
-                <div id="sonic" class="sonic"></div>
-                <!--
-            
-                /menu/info <div class="sonic2"></div>
-                <div class="enemigo1"></div>
-                <div class="sonic3"></div>
-                <div class="enemigo2"></div>
-                <div class="enemigo3"></div>
-                <div class="moneda"></div>-->
-            
-          
+            <!-- LostGame-->
+            <div id="lost" class="flex-item menu">
+                <h2>Game Over</h2>
+                <div>
+                    <p>Puntuacion Total: </p>
+                    <p id="scoreFinish">0</p>
+                </div>
+                <div>
+                    <p>Tiempo de Juego: </p>
+                    <p id="timeTotal">0</p>
+                </div>
+                <button id="btn_start">Reiniciar🎮</button>
+            </div>
+            <!-- LostGame-->
+
+            <div id="sonic" class="sonic"></div>
+            <div id="forest" class="forest"></div>
             <div id="grass" class="grass"></div>
         </div>
-        
     </div>
-    <!-- /Game -->
     </div>
 
     <script type="text/javascript" src="js/Character.js"></script>

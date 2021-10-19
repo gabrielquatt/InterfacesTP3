@@ -47,7 +47,7 @@ class Game {
   }
 
   lost() {
-    console.log("lost");
+    
   }
 
   addEnemy() {
@@ -67,7 +67,6 @@ class Game {
   makeEnemy() {
     let type = "enemigo";
     type += parseInt(Math.random() * 3) + 1;
-    console.log(type);
     let enemy = new Enemy(type, this.enemyCount);
     this.enemies.push(enemy);
     this.enemyCount++;
