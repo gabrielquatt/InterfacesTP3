@@ -11,7 +11,7 @@ class Runner extends Character {
   jump() {
     this.character.classList.remove("walk");
     this.character.classList.add("jump");
-    setTimeout(this.fell.bind(this), 1000);
+    setTimeout(this.fell.bind(this), 600);
   }
 
   fell() {
