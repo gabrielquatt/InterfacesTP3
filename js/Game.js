@@ -8,17 +8,31 @@ class Game {
     this.ringsCount = 0;
     this.enemyCount = 0;
     this.gameContainer = document.getElementById("gameContainer");
+    this.ringCount = document.getElementById("Mone_Recolec");
     this.score = document.getElementById("score");
+    this.timeout=30;
+    this.timer = document.getElementById("timer");
+    this.scoreTotal = 0;
     this.loop;
     this.ringLoop;
     this.enemyLoop;
     this.enemyWait;
     this.ringWait;
+    this.lostMenu = document.getElementById("lostMenu");
+    this.grass = document.getElementById("grass");
+    this.forest = document.getElementById("forest");
+    this.highland = document.getElementById("highland");
+    this.coinSound = new Audio("/music/SonicRing.ogg");
+    this.lostSound = new Audio("/music/SonicLost.ogg");
+    this.coinSound.volume = 0.10;
+    this.lostSound.volume = 0.10;
+    this.ringCount.innerHTML =  "<img class='imgMenu' src='img/sprites/monedaMenu.png' alt='enemigo3'>  x"+ this.ringsCount;
   }
 
   init() {
     this.gameContainer.appendChild(this.runner.container());
     this.updateScore();
+    this.timerGame();
     this.enemyLoop = setInterval(this.addEnemy.bind(this), 1000); // loop para crear enemigos
     this.ringLoop = setInterval(this.addRing.bind(this), 1000); // loop para crear monedas
     this.loop = setInterval(this.gameLoop.bind(this), 20); // loop para controlar estado del juego
@@ -26,7 +40,6 @@ class Game {
 
   gameLoop() {
     let runnerStatus = this.runner.status();
-
     // verificar monedas
     this.rings.forEach((ring) => {
       let ringStatus = ring.status();
@@ -45,8 +58,12 @@ class Game {
     }
   }
 
-  // TODO animacion de recoleccion de anillo
   collectCoin(ring) {
+    this.coinSound.play();
+    this.timeout = this.timeout+5;
+    this.ringsCount = this.ringsCount+1;
+    this.ringCount.innerHTML =  "<img class='imgMenu' src='img/sprites/monedaMenu.png' alt='enemigo3'>  x"+ this.ringsCount;
+    this.scoreTotal= this.scoreTotal+100;
     this.updateScore();
     this.gameContainer.removeChild(ring.container());
     this.rings.splice(0, 1);
@@ -65,20 +82,28 @@ class Game {
 
   // TODO animacion de muerte, frenar fondo
   lost() {
-    console.log("lost");
     clearInterval(this.loop);
     clearInterval(this.ringLoop);
     clearInterval(this.enemyLoop);
     clearTimeout(this.enemyWait);
     clearTimeout(this.ringWait);
+    this.lostSound.play(); 
+    this.timeout=0;
+    this.timer.innerHTML = "<h1>"+this.timeout+"</h1>";
+    this.lostMenu.style.display = null;
+    document.getElementById("scoreFinish").innerHTML= this.scoreTotal;
+    document.getElementById("ringsTotal").innerHTML = this.ringsCount;
+    this.grass.style.display = "none";
+    this.forest.style.display = "none";
+    this.highland.style.display = "none";
 
-    // this.enemies.forEach((enemy) => enemy.stop());
-    // this.rings.forEach((ring) => ring.stop());
+     this.enemies.forEach((enemy) => this.gameContainer.removeChild(enemy.container()));
+    this.rings.forEach((ring) => this.gameContainer.removeChild(ring.container()));
     // this.runner.stop();
   }
 
   updateScore() {
-    this.score.innerHTML = this.ringsCount++;
+   this.score.innerHTML = this.scoreTotal;
   }
 
   addRing() {
@@ -87,7 +112,6 @@ class Game {
       let min = 3;
       let max = 10;
       let res = parseInt(Math.random() * (max - min) + min);
-
       this.ringWait = setTimeout(() => {
         this.makeRing();
       }, res * 1000);
@@ -111,10 +135,9 @@ class Game {
       let min = 1;
       let max = 3;
       let res = parseInt(Math.random() * (max - min) + 1);
-
       this.enemyWait = setTimeout(() => {
         this.makeEnemy();
-      }, res * 1000);
+      }, res * 900);
     }
   }
 
@@ -126,10 +149,27 @@ class Game {
     this.gameContainer.appendChild(enemy.container());
 
     enemy.container().addEventListener("animationend", () => {
+      this.scoreTotal = this.scoreTotal+5;
+      this.updateScore();
       this.gameContainer.removeChild(enemy.container());
       this.enemies.splice(0, 1);
     });
 
     this.isMakeEnemy = false;
   }
+
+  //====================================TIMER======================================//
+	timerGame()
+	{
+    this.timeout = this.timeout-1;
+    this.timer.innerHTML = "<h1>"+this.timeout+"</h1>";
+    if(this.timeout<0){
+      this.lost();
+    }else{
+      setTimeout(()=>{
+        this.timerGame();
+      },1000);
+    }
+	}
+
 }

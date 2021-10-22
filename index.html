@@ -10,31 +10,41 @@
 </head>
 
 <body>
-
     <div class="parent">
         <!-- header game-->
         <div class="div1">
             <h1>Puntaje <span id="score"> </span></h1>
         </div>
         <div class="div2">
-            <div>
-                <div id="timer">
+            <div class="box">
+                <div class="box">
+                    <h1>Tiempo Restante:</h1>
+
+                </div>
+                <div  class="box" id="timer">
                     <h1>30</h1>
                 </div>
+     
             </div>
         </div>
         <div class="div3">
             <div>
                 <h1 id="Mone_Recolec"></h1>
             </div>
+
+        </div>
+        <div class="div5">
+            <div>
+                <img class="btnMusic" src="img/SoundOff.png" id="btnMusic">
+            </div>
         </div>
         <!-- /header game -->
-
+        
         <!-- Game -->
         <div id="gameContainer" class="div4 flex-container gameStop gameContainer">
-            <div id="highland" class="highland"></div>
-
-            <!-- menu/info -->
+            <div id="highland" class="highland"></div>       
+           
+              <!-- menu/info -->
             <div id="menu" class="flex-item menu">
                 <img src="img/logo.png" alt="logo">
                 <div class="menu__button">
@@ -63,17 +73,17 @@
             </div>
             <!-- /menu/info -->
             <!-- LostGame-->
-            <div id="lost" class="flex-item menu">
+            <div id="lostMenu" class="flex-item menu">
                 <h2>Game Over</h2>
                 <div>
                     <p>Puntuacion Total: </p>
                     <p id="scoreFinish">0</p>
                 </div>
                 <div>
-                    <p>Tiempo de Juego: </p>
-                    <p id="timeTotal">0</p>
+                    <p>Total Anillos: </p>
+                    <p id="ringsTotal">0</p>
                 </div>
-                <button id="btn_start">Reiniciar🎮</button>
+                <button id="btn_restart">Reiniciar🎮</button>
             </div>
             <!-- LostGame-->
 
