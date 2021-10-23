@@ -10,41 +10,42 @@
 </head>
 
 <body>
-    <div class="parent">
+    <div id="parent" class="parent">
         <!-- header game-->
-        <div class="div1">
-            <h1>Puntaje <span id="score"> </span></h1>
-        </div>
-        <div class="div2">
-            <div class="box">
+      <header id="header">
+
+          <div class="div1">
+              <h1>Puntaje <span id="score"> </span></h1>
+            </div>
+            <div class="div2">
                 <div class="box">
-                    <h1>Tiempo Restante:</h1>
-
+                    <div class="box">
+                        <h1>Tiempo Restante:</h1> 
+                    </div>
+                    <div  class="box" id="timer">
+                        <h1>30</h1>
+                    </div>
                 </div>
-                <div  class="box" id="timer">
-                    <h1>30</h1>
+            </div>
+            <div class="div3">
+                <div>
+                    <h1 id="Mone_Recolec"></h1>
                 </div>
-     
             </div>
-        </div>
-        <div class="div3">
-            <div>
-                <h1 id="Mone_Recolec"></h1>
+            <div class="div5">
+                <div>
+                    <img class="btnMusic" src="img/SoundOff.png" id="btnMusic">
+                </div>
             </div>
-
-        </div>
-        <div class="div5">
-            <div>
-                <img class="btnMusic" src="img/SoundOff.png" id="btnMusic">
-            </div>
-        </div>
-        <!-- /header game -->
-        
-        <!-- Game -->
-        <div id="gameContainer" class="div4 flex-container gameStop gameContainer">
+            
+        </header>
+            <!-- /header game -->
+            
+            <!-- Game -->
+            <div id="gameContainer" class="div4 flex-container gameStop gameContainer">
             <div id="highland" class="highland"></div>       
-           
-              <!-- menu/info -->
+            
+            <!-- menu/info -->
             <div id="menu" class="flex-item menu">
                 <img src="img/logo.png" alt="logo">
                 <div class="menu__button">

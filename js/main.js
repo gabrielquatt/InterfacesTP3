@@ -3,6 +3,7 @@
 let menu = document.getElementById("menu");
 let info = document.getElementById("info");
 let lost = document.getElementById("lostMenu");
+let parent = document.getElementById("parent");
 let gameContainer = document.getElementById("gameContainer");
 let grass = document.getElementById("grass");
 let forest = document.getElementById("forest");
@@ -29,6 +30,8 @@ let btn_info = document.getElementById("btn_info").addEventListener('click', () 
 });
 
 btn_start.addEventListener('click', () => {
+  parent.classList.add("blue");
+  document.getElementById("header").style.visibility = "visible";
   iniciar();
 });
 
@@ -47,6 +50,7 @@ function iniciar() {
   forest.style.display = null;
   highland.style.display = null;
   runner.style.visibility = "visible";
+
   gameContainer.classList.remove("gameStop");
   gameContainer.classList.add("sky1");
   game.init();
