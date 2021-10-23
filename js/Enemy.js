@@ -9,12 +9,8 @@ class Enemy extends Character {
     element.classList.add("terrestre");
     
     if (n == 3) {
-      let c = parseInt(Math.random() * 10) + 1;
-      if (c % 2 == 0) {
-        element.classList.remove("terrestre");
-        element.classList.add("aereo");
-        speed = "3s";
-      }
+      element.classList.remove("terrestre");
+      element.classList.add("aereo");
     }
     
     element.classList.add(clss);
