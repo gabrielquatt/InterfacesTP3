@@ -15,13 +15,6 @@ class Enemy extends Character {
     
     element.classList.add(clss);
     super(element);
-    // this.style = getComputedStyle(element);
-
-    // let advance = `, advance ${speed} forwards linear`;
-    
-    // element.style.animation += advance;
-    // this.animation = this.style.animation;
-    // this.clss = clss;
     this.id = id;
   }
 
@@ -29,12 +22,4 @@ class Enemy extends Character {
     return this.idset;
   }
 
-  stop(){
-
-    // let left = parseInt(this.status().x);
-    // this.character.style.animation = null;
-    // this.character.style.animation = this.animation;
-    // this.character.style.left = left + "px";
-
-  }
 }

@@ -12,5 +12,5 @@ class Character {
     return this.character.getBoundingClientRect();
   }
   
-  stop(){}
+  stop(){ this.character.style.animationPlayState = 'paused';}
 }

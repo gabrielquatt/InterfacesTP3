@@ -13,7 +13,7 @@ body {
   grid-template-rows: repeat(8, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  background-color: rgb(43,206,220);
+  background-color: rgb(43, 206, 220);
 }
 
 .div1 {
@@ -36,9 +36,9 @@ h1 {
   color: yellow;
   font-style: initial;
 }
-header{
+header {
   display: contents;
-    visibility: hidden;
+  visibility: hidden;
 }
 p {
   color: white;
@@ -109,7 +109,7 @@ button {
   display: inline-block;
 }
 
-.blue{
+.blue {
   background: rgb(1, 110, 253);
 }
 
@@ -303,17 +303,32 @@ button {
     top: 140px;
     background-position: 0;
   }
+  10% {
+    top: -10px;
+  }
   20% {
-    top: -60px;
+    top: -40px;
+  }
+  30% {
+    top: -80px;
   }
   40% {
     top: -120px;
   }
+  50% {
+    top: -130px;
+  }
   60% {
     top: -120px;
   }
+  70% {
+    top: -80px;
+  }
   80% {
-    top: -60px;
+    top: -40px;
+  }
+  90% {
+    top: -10px;
   }
   100% {
     background-position: -961px;
