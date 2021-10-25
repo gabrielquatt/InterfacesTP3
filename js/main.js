@@ -78,3 +78,4 @@ function playSound() {
   }
 }
 
+btn_start.click();
