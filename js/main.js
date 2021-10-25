@@ -40,7 +40,7 @@ function iniciar() {
     game = null;
     game = new Game();
   }
-  // btnMusic.click();
+  btnMusic.click();
   lost.style.display = "none";
   menu.style.display = "none";
   grass.style.display = null;
@@ -76,4 +76,4 @@ function playSound() {
   }
 }
 
-btn_start.click();
+// btn_start.click();
