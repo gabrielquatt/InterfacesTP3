@@ -32,7 +32,7 @@ body {
   grid-area: 1 / 8 / 2 / 9;
 }
 
-h1 {
+h1,h2 {
   color: yellow;
   font-style: initial;
 }
@@ -260,23 +260,17 @@ button {
 }
 
 .death {
-
-  background: url("../img/sprites/sonic/sonicMuerte.png") no-repeat;
-  background-size: cover;
-  animation: death 1s steps(2) forwards;
+  background: url("../img/sprites/sonic/sonicMuerte.png") repeat-x;
+  animation: death 500ms steps(6) forwards;
 }
 
 @keyframes death {
   0% {
-    bottom: auto;
     background-position: 0;
   }
-  40% {
-    bottom: 400px;
-    background-position: -95px;
-  }
   100% {
-    bottom: -100px;
+    background-position: -583px;
+    bottom: -30%;
   }
 }
 

@@ -35,6 +35,9 @@ class Game {
   }
 
   init() {
+    this.grass.style.animationPlayState = "running";
+    this.forest.style.animationPlayState = "running";
+    this.highland.style.animationPlayState = "running";
     this.parent.classList.add("blue");
     this.header.style.visibility = "visible";
     this.gameContainer.appendChild(this.runner.container());
@@ -85,14 +88,15 @@ class Game {
    * @param {*} elem div 2
    * @returns superposicion entre dos divs
    */
-  detectCollision(run,elem) {
+  detectCollision(run, elem) {
     let h =
       run.x - 5 < elem.x + elem.width + 5 && run.x + run.width - 30 > elem.x;
-    let v = run.y + 10 < elem.y + elem.height - 10 && run.y + run.height - 10 > elem.y;
+    let v =
+      run.y + 10 < elem.y + elem.height - 10 &&
+      run.y + run.height - 10 > elem.y;
     return h && v;
   }
 
- 
   lost() {
     clearInterval(this.loop);
     clearInterval(this.ringLoop);
@@ -104,24 +108,27 @@ class Game {
     this.timer.innerHTML = "<h1>" + this.timeout + "</h1>";
     document.getElementById("scoreFinish").innerHTML = this.scoreTotal;
     document.getElementById("ringsTotal").innerHTML = this.ringsCount;
-    this.grass.style.animationPlayState = 'paused';
-    this.forest.style.animationPlayState = 'paused';
-    this.highland.style.animationPlayState = 'paused';
-
+    this.grass.style.animationPlayState = "paused";
+    this.forest.style.animationPlayState = "paused";
+    this.highland.style.animationPlayState = "paused";
     this.runner.stop();
-    
-  /*   this.lostMenu.style.display = null;
-    this.enemies.forEach((enemy) => {
-      enemy.stop();
-      if (enemy.container().parentNode == this.gameContainer)
-        this.gameContainer.removeChild(enemy.container());
-    });
-    this.rings.forEach((ring) => {
-      ring.stop();
-      if (ring.container().parentNode == this.gameContainer)
-        this.gameContainer.removeChild(ring.container());
-    }); */
 
+    setTimeout(() => {
+      this.grass.style.display = "none";
+      this.forest.style.display = "none";
+      this.highland.style.display = "none";
+      this.lostMenu.style.display = null;
+      this.enemies.forEach((enemy) => {
+        enemy.stop();
+        if (enemy.container().parentNode == this.gameContainer)
+          this.gameContainer.removeChild(enemy.container());
+      });
+      this.rings.forEach((ring) => {
+        ring.stop();
+        if (ring.container().parentNode == this.gameContainer)
+          this.gameContainer.removeChild(ring.container());
+      });
+    }, 1000);
   }
 
   updateScore() {
@@ -185,7 +192,6 @@ class Game {
     this.timeout = this.timeout - 1;
     this.timer.innerHTML = "<h1>" + this.timeout + "</h1>";
     if (this.timeout < 0) {
-
       this.lost();
     } else {
       setTimeout(() => {

@@ -1,6 +1,8 @@
 class Runner extends Character {
   constructor() {
-    super(document.getElementById("sonic"));
+    let element = document.createElement("div");
+    element.classList.add("sonic");
+    super(element);
     this.isJumping = false;
 
     window.addEventListener("keydown", (e) => {

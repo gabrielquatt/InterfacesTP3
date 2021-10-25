@@ -7,7 +7,7 @@ let gameContainer = document.getElementById("gameContainer");
 let grass = document.getElementById("grass");
 let forest = document.getElementById("forest");
 let highland = document.getElementById("highland");
-let runner = document.getElementById("sonic");
+
 let btn_start = document.getElementById("btn_start");
 let btn_restart = document.getElementById("btn_restart");
 let game = new Game();
@@ -21,7 +21,6 @@ highland.style.display = "none";
 //oculta el div info
 info.style.display = "none";
 lost.style.display = "none";
-runner.style.visibility = "hidden";
 
 let btn_info = document.getElementById("btn_info").addEventListener('click', () => {
   menu.style.display = "none";
@@ -47,7 +46,6 @@ function iniciar() {
   grass.style.display = null;
   forest.style.display = null;
   highland.style.display = null;
-  runner.style.visibility = "visible";
   gameContainer.classList.remove("gameStop");
   gameContainer.classList.add("sky1");
   game.init();
