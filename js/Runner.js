@@ -39,4 +39,10 @@ class Runner extends Character {
       this.isJumping = false;
     }, 10);
   }
+
+  stop(){
+    this.character.classList.remove("jump");
+    this.character.classList.remove("walk");
+    this.character.classList.add("death");
+  }
 }

@@ -41,13 +41,13 @@ function iniciar() {
     game = null;
     game = new Game();
   }
+  // btnMusic.click();
   lost.style.display = "none";
   menu.style.display = "none";
   grass.style.display = null;
   forest.style.display = null;
   highland.style.display = null;
   runner.style.visibility = "visible";
-
   gameContainer.classList.remove("gameStop");
   gameContainer.classList.add("sky1");
   game.init();

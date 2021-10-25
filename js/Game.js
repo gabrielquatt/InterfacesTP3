@@ -92,7 +92,7 @@ class Game {
     return h && v;
   }
 
-  // TODO animacion de muerte, frenar fondo
+ 
   lost() {
     clearInterval(this.loop);
     clearInterval(this.ringLoop);
@@ -102,23 +102,26 @@ class Game {
     this.lostSound.play();
     this.timeout = 0;
     this.timer.innerHTML = "<h1>" + this.timeout + "</h1>";
-    this.lostMenu.style.display = null;
     document.getElementById("scoreFinish").innerHTML = this.scoreTotal;
     document.getElementById("ringsTotal").innerHTML = this.ringsCount;
-    this.grass.style.display = "none";
-    this.forest.style.display = "none";
-    this.highland.style.display = "none";
+    this.grass.style.animationPlayState = 'paused';
+    this.forest.style.animationPlayState = 'paused';
+    this.highland.style.animationPlayState = 'paused';
 
+
+    this.runner.stop();
+    
+    // this.lostMenu.style.display = null;
     this.enemies.forEach((enemy) => {
       enemy.stop();
       // if (enemy.container().parentNode == this.gameContainer)
       //   this.gameContainer.removeChild(enemy.container());
     });
     this.rings.forEach((ring) => {
-      if (ring.container().parentNode == this.gameContainer)
-        this.gameContainer.removeChild(ring.container());
+      ring.stop();
+      // if (ring.container().parentNode == this.gameContainer)
+      //   this.gameContainer.removeChild(ring.container());
     });
-    this.runner.stop();
   }
 
   updateScore() {
@@ -182,6 +185,7 @@ class Game {
     this.timeout = this.timeout - 1;
     this.timer.innerHTML = "<h1>" + this.timeout + "</h1>";
     if (this.timeout < 0) {
+
       this.lost();
     } else {
       setTimeout(() => {

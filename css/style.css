@@ -68,8 +68,7 @@ img {
 .menu {
   height: 300px;
   width: 40%;
-  background-color: rgb(1, 1, 1);
-  opacity: 90%;
+  background: rgb(1, 110, 253);
   border-radius: 5px;
   border: solid 3px white;
   justify-content: center;
@@ -259,9 +258,18 @@ button {
   animation: moneda 500ms steps(16) infinite, advance 4s forwards linear;
 }
 
+.death {
+  width: 100px;
+  height: 114px;
+  background: url("../img/sprites/sonic/sonicMuerte.png") no-repeat;
+  background-size: cover;
+  transition: transform 500ms linear;
+}
+
+
 @keyframes enemigo1 {
   0% {
-    background-position: 0;
+    background-position: 0; 
   }
   100% {
     background-position: -297px;
