@@ -108,20 +108,20 @@ class Game {
     this.forest.style.animationPlayState = 'paused';
     this.highland.style.animationPlayState = 'paused';
 
-
     this.runner.stop();
     
-    // this.lostMenu.style.display = null;
+  /*   this.lostMenu.style.display = null;
     this.enemies.forEach((enemy) => {
       enemy.stop();
-      // if (enemy.container().parentNode == this.gameContainer)
-      //   this.gameContainer.removeChild(enemy.container());
+      if (enemy.container().parentNode == this.gameContainer)
+        this.gameContainer.removeChild(enemy.container());
     });
     this.rings.forEach((ring) => {
       ring.stop();
-      // if (ring.container().parentNode == this.gameContainer)
-      //   this.gameContainer.removeChild(ring.container());
-    });
+      if (ring.container().parentNode == this.gameContainer)
+        this.gameContainer.removeChild(ring.container());
+    }); */
+
   }
 
   updateScore() {

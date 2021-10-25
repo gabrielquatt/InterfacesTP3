@@ -201,6 +201,7 @@ button {
 
 .impatient {
   background: url("../img/sprites/sonic/sonicEsperando.png") repeat-x;
+  background-size: cover;
   animation: impatient 250ms steps(2) infinite;
 }
 
@@ -259,17 +260,28 @@ button {
 }
 
 .death {
-  width: 100px;
-  height: 114px;
   background: url("../img/sprites/sonic/sonicMuerte.png") no-repeat;
   background-size: cover;
-  transition: transform 500ms linear;
+  animation: death 1s steps(2) forwards;
 }
 
+@keyframes death {
+  0% {
+    bottom: auto;
+    background-position: 0;
+  }
+  40% {
+    bottom: 400px;
+    background-position: -95px;
+  }
+  100% {
+    bottom: -100px;
+  }
+}
 
 @keyframes enemigo1 {
   0% {
-    background-position: 0; 
+    background-position: 0;
   }
   100% {
     background-position: -297px;
