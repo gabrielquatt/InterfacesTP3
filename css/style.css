@@ -13,7 +13,7 @@ body {
   grid-template-rows: repeat(8, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
-  background-color: rgb(43, 206, 220);
+  background: rgb(1, 110, 253);
 }
 
 .div1 {
@@ -260,6 +260,7 @@ button {
 }
 
 .death {
+
   background: url("../img/sprites/sonic/sonicMuerte.png") no-repeat;
   background-size: cover;
   animation: death 1s steps(2) forwards;
