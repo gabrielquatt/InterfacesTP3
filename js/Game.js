@@ -36,12 +36,12 @@ class Game {
 
     // sonidos del juego
     this.btnMusic = document.getElementById("btnMusic");
-    this.gameMusic = new Audio("/music/SonicMusic.ogg");
-    this.ringSound = new Audio("/music/SonicRing.ogg");
-    this.lostSound = new Audio("/music/SonicLost.ogg");
-    this.gameMusic.volume = 0;
-    this.ringSound.volume = 0;
-    this.lostSound.volume = 0;
+    this.gameMusic = new Audio("./audio/SonicMusic.ogg");
+    this.ringSound = new Audio("./audio/SonicRing.ogg");
+    this.lostSound = new Audio("./audio/SonicLost.ogg");
+    this.gameMusic.volume = 0.1;
+    this.ringSound.volume = 0.1;
+    this.lostSound.volume = 0.1;
 
     this.btnMusic.addEventListener("click", () => {
       this.playSound();
@@ -153,7 +153,7 @@ class Game {
     this.timer.innerHTML = "<h1>" + this.timeout + "</h1>";
     document.getElementById("scoreFinish").innerHTML = this.scoreTotal;
     document.getElementById("ringsTotal").innerHTML = this.ringsCount;
-
+  
     // detener animaciones del escenario
     this.grass.style.animationPlayState = "paused";
     this.forest.style.animationPlayState = "paused";
@@ -168,20 +168,23 @@ class Game {
       this.forest.style.display = "none";
       this.highland.style.display = "none";
       this.lostMenu.style.display = null;
-
       // remover enemigos del escenario
       this.enemies.forEach((enemy) => {
         enemy.stop();
         if (enemy.container().parentNode == this.gameContainer)
-          this.gameContainer.removeChild(enemy.container());
+        this.gameContainer.removeChild(enemy.container());
       });
-
+      
       // remover anillos del escenario
       this.rings.forEach((ring) => {
         ring.stop();
         if (ring.container().parentNode == this.gameContainer)
-          this.gameContainer.removeChild(ring.container());
+        this.gameContainer.removeChild(ring.container());
       });
+    
+      if(this.runner.container().parentNode==this.gameContainer){
+        this.gameContainer.removeChild(this.runner.container());
+      }
     }, 1000);
   }
 
@@ -274,16 +277,12 @@ class Game {
     this.gameMusic.loop = true;
     if (!this.gameMusic.paused) {
       this.btnMusic.src = "/img/SoundOff.png";
-      this.gameMusic.pause();
+      this.gameMusic.volume=0;
       this.gameMusic.currentTime = 0;
-      this.gameMusic.volume = 0;
-      this.ringSound.volume = 0;
-      this.lostSound.volume = 0;
+      this.gameMusic.pause();
     } else {
       this.btnMusic.src = "/img/SoundOn.png";
-      this.gameMusic.volume = 0.1;
-      this.ringSound.volume = 0.1;
-      this.lostSound.volume = 0.1;
+      this.gameMusic.volume=0.1;
       this.gameMusic.play();
     }
   }

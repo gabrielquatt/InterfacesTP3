@@ -6,10 +6,9 @@ class Enemy extends Character {
     let clss = type + n;
     element.classList.add("elemento");
     element.classList.add("terrestre");
-    let r = Math.random();
 
-    // el enemigo 3 tiene 30% de probabilidades de ser terrestre
-    if (n == 3 && r > 0.3) {
+    // el enemigo 3 es aereo
+    if (n == 3) {
       element.classList.remove("terrestre");
       element.classList.add("aereo");
     }
