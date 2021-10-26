@@ -30,6 +30,7 @@ class Game {
     this.scoreTotal = 0;
     this.timeout = 30;
     this.ringCount.innerHTML = this.ringsCount;
+    this.text = "El Tiempo a Finalizado";
 
     // game loop principal
     this.loop;
@@ -96,7 +97,8 @@ class Game {
 
       // se pierde el juego al chocar con un enemigo (no se los puede matar)
       if (this.detectCollision(runnerStatus, enemyStatus)) {
-        this.lost();
+        this.text = "Chocaste con un Enemigo";
+        this.lost(this.text);
       }
       i++;
     }
@@ -141,7 +143,7 @@ class Game {
   /**
    * fin del juego
    */
-  lost() {
+  lost(text) {
     // limpiar los loops
     clearInterval(this.loop);
     clearInterval(this.ringLoop);
@@ -153,7 +155,8 @@ class Game {
     this.timer.innerHTML = "<h1>" + this.timeout + "</h1>";
     document.getElementById("scoreFinish").innerHTML = this.scoreTotal;
     document.getElementById("ringsTotal").innerHTML = this.ringsCount;
-  
+    document.getElementById("textLost").innerHTML=text;
+
     // detener animaciones del escenario
     this.grass.style.animationPlayState = "paused";
     this.forest.style.animationPlayState = "paused";
@@ -262,7 +265,7 @@ class Game {
     this.timeout = this.timeout - 1;
     this.timer.innerHTML = "<h1>" + this.timeout + "</h1>";
     if (this.timeout < 0) {
-      this.lost();
+      this.lost(this.text);
     } else {
       setTimeout(() => {
         this.timerGame();
@@ -276,12 +279,12 @@ class Game {
   playSound() {
     this.gameMusic.loop = true;
     if (!this.gameMusic.paused) {
-      this.btnMusic.src = "/img/SoundOff.png";
+      this.btnMusic.src = "./img/SonidoOff.png";
       this.gameMusic.volume=0;
       this.gameMusic.currentTime = 0;
       this.gameMusic.pause();
     } else {
-      this.btnMusic.src = "/img/SoundOn.png";
+      this.btnMusic.src = "./img/SonidoOn.png";
       this.gameMusic.volume=0.1;
       this.gameMusic.play();
     }

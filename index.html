@@ -27,7 +27,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="div3">
                 <div>
                     <h1 class="line"><img class='imgMenu' src='img/sprites/anilloMenu.png' > x<span id="Mone_Recolec"></span></h1>
@@ -36,7 +36,7 @@
 
             <div class="div5">
                 <div class="line">
-                    <img class="btnMusic" src="img/SoundOff.png" id="btnMusic">
+                    <img class="btnMusic" src="img/SonidoOff.png" id="btnMusic">
                 </div>
             </div>
             
@@ -60,31 +60,33 @@
             </div>
             <div id="info" class="flex-item info">
                 <p>El Juego consiste en evitar los enemigo que apareceran en pantalla
-                    y coleccionar la mayor cantidad de anillos posibles.</p>
+                    y coleccionar la mayor cantidad de anillos posibles. Cada enemigo que aparezca en pantalla sumara 5 puntos</p>
                     <div>
                         <img class="infoImg" src="img/sprites/enemigo1.png" alt="enemigo1">
                         <img class="infoImg" src="img/sprites/enemigo2.png" alt="enemigo2">
                         <img class="infoImg" src="img/sprites/enemigo3.png" alt="enemigo3">
                     </div>
-                <p>Cada anillo sumara +10 Segundo al tiempo, una vez que el contador llegue a 00:00
+                <p>Cada anillo sumara +5 Segundo al tiempo y 100 a la puntuacion a la puntuacion total, una vez que el contador llegue a 0
                     se perdera automaticamente.</p>
                     <div>
                         <img class="infoImgAnillo" src="img/sprites/anillo.png" alt="anillo">
                     </div>
                 <p>Para saltar puede pulsar la flecha hacia arriba ⬆ o la Barra Espaciadora ⇌ del teclado.</p>
                 <button id="btn_close">cerrar</button>
+                <div class="sonic impatient"></div>
             </div>
             <!-- /menu/info -->
 
             <!-- LostGame-->
             <div id="lostMenu" class="flex-item menu">
-                <h2>Game Over</h2>
+                <h1>Game Over</h1>
+                <h2 id="textLost"></h2>
                 <div>
-                    <p>Puntuacion Total: </p>
+                    <p>Tu Puntuacion Final Total Es: </p>
                     <p id="scoreFinish">0</p>
                 </div>
                 <div>
-                    <p>Total Anillos: </p>
+                    <p>Total Anillos Recolectados Durante la Partida: </p>
                     <p id="ringsTotal">0</p>
                 </div>
                 <button id="btn_restart">Reiniciar🎮</button>

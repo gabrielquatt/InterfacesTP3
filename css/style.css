@@ -74,9 +74,10 @@ img {
 
 .info,
 .menu {
-  height: 300px;
-  width: 40%;
-  background: rgb(1, 110, 253);
+  height: 350px;
+  width: 50%;
+  background: rgb(207,0,255);
+  background: linear-gradient(349deg, rgba(207,0,255,1) 0%, rgba(45,54,253,1) 100%);
   border-radius: 5px;
   border: solid 3px white;
   justify-content: center;
@@ -95,6 +96,7 @@ img {
 
 button {
   padding: 5px;
+  margin: 10px;
   background: rgb(255, 220, 0);
   background: linear-gradient(
     0deg,
@@ -133,7 +135,6 @@ button {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: center;
   align-content: center;
   align-items: center;
 }
