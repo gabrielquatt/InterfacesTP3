@@ -7,6 +7,10 @@ body {
     "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .parent {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
@@ -32,24 +36,28 @@ body {
   grid-area: 1 / 8 / 2 / 9;
 }
 
-h1,h2 {
+h1,
+h2 {
   color: yellow;
   font-style: initial;
 }
+
 header {
   display: contents;
   visibility: hidden;
 }
+
 p {
   color: white;
   margin: 2px 10px 1px 10px;
 }
+
 .infoImg {
   width: 50px;
   height: 40px;
 }
 
-.infoImgMoneda {
+.infoImgAnillo {
   width: 80px;
   height: 40px;
 }
@@ -112,7 +120,12 @@ button {
   background: rgb(1, 110, 253);
 }
 
-/* ==============Elementos Flex============================ */
+/* ============== Elementos Flex ============================ */
+.line {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 
 .flex-container {
   float: unset;
@@ -130,7 +143,7 @@ button {
   align-self: center;
 }
 
-/* =============================================================================== */
+/* ========================== Escenario ============================= */
 .gameStop {
   background: url("../img/fondos/fondoGame.png") no-repeat;
   background-size: cover;
@@ -140,7 +153,6 @@ button {
   height: 85%;
 }
 
-/* MUNDO*/
 .highland {
   width: 100%;
   height: 80%;
@@ -169,6 +181,15 @@ button {
   animation: movebgMount 200s linear infinite;
 }
 
+@keyframes movebgMount {
+  0% {
+    background-position: 5866px;
+  }
+  100% {
+    background-position: 0px;
+  }
+}
+
 .grass {
   background: url("../img/fondos/piso.png") repeat-x;
   position: absolute;
@@ -177,10 +198,19 @@ button {
   width: 100%;
   bottom: 0px;
   float: initial;
-  animation: movebgGlass 1s linear infinite;
+  animation: movebgGrass 1s linear infinite;
 }
 
-/* PERSONAJES */
+@keyframes movebgGrass {
+  0% {
+    background-position: 2839px;
+  }
+  100% {
+    background-position: 0;
+  }
+}
+
+/* ========================== personajes ============================= */
 .sonic {
   width: 96px;
   height: 114px;
@@ -190,127 +220,46 @@ button {
   left: 100px;
 }
 
-.sonicMenu {
-  width: 132px;
-  height: 159px;
-  margin: auto;
-  position: absolute;
-  bottom: 95px;
-  left: 100px;
-}
-
+/* 
+  sonic esperando 
+*/
 .impatient {
   background: url("../img/sprites/sonic/sonicEsperando.png") repeat-x;
-  background-size: cover;
   animation: impatient 250ms steps(2) infinite;
 }
 
+@keyframes impatient {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -185px;
+  }
+}
+
+/* 
+  sonic corriendo
+*/
 .walk {
   background: url("../img/sprites/sonic/sonicCorriendo.png") repeat-x;
   animation: walk 300ms steps(4) infinite;
 }
 
-/* clase auxiliar para probar comfiguraciones de sprite salto*/
+@keyframes walk {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -384px;
+  }
+}
+
+/* 
+  sonic saltando 
+*/
 .jump {
   background: url("../img/sprites/sonic/sonicSalto.png") repeat-x;
   animation: jump 700ms steps(10) forwards;
-}
-
-.elemento {
-  position: absolute;
-  background-position: -112px;
-  right: 0px;
-}
-
-.aereo {
-  bottom: 300px;
-}
-
-.terrestre {
-  bottom: 95px;
-}
-
-.enemigo1 {
-  width: 97px;
-  height: 74px;
-  background: url("../img/sprites/enemigos/enemigo1.png") repeat-x;
-  animation: enemigo1 500ms steps(3) infinite, advance 3s forwards linear;
-}
-
-.enemigo2 {
-  width: 128px;
-  height: 92px;
-  background: url("../img/sprites/enemigos/enemigo2.png") repeat-x;
-  animation: enemigo2 500ms steps(3) infinite, advance 2.5s forwards linear;
-}
-
-.enemigo3 {
-  width: 133px;
-  height: 77px;
-  background: url("../img/sprites/enemigos/enemigo3.png") repeat-x;
-  animation: enemigo3 500ms steps(4) infinite, advance 3s forwards linear;
-}
-
-.moneda {
-  width: 88px;
-  height: 88px;
-  background: url("../img/sprites/entorno/moneda.png") repeat-x;
-  background-size: cover;
-  animation: moneda 500ms steps(16) infinite, advance 4s forwards linear;
-}
-
-.death {
-  background: url("../img/sprites/sonic/sonicMuerte.png") repeat-x;
-  animation: death 500ms steps(6) forwards;
-}
-
-@keyframes death {
-  0% {
-    background-position: 0;
-  }
-  100% {
-    background-position: -583px;
-    bottom: -30%;
-  }
-}
-
-@keyframes enemigo1 {
-  0% {
-    background-position: 0;
-  }
-  100% {
-    background-position: -297px;
-  }
-}
-
-@keyframes advance {
-  from {
-    left: 110%;
-  }
-  to {
-    left: -10%;
-  }
-}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-@keyframes enemigo2 {
-  0% {
-    background-position: 0;
-  }
-  100% {
-    background-position: -386px;
-  }
-}
-@keyframes enemigo3 {
-  0% {
-    background-position: 0;
-  }
-  100% {
-    background-position: -532px;
-  }
 }
 
 @keyframes jump {
@@ -351,42 +300,120 @@ button {
   }
 }
 
-@keyframes walk {
+/* 
+  sonic muriendo 
+*/
+.death {
+  background: url("../img/sprites/sonic/sonicMuerte.png") repeat-x;
+  animation: death 800ms steps(6) forwards;
+}
+
+@keyframes death {
+  0% {
+    background-position: 0;
+  }
+  60% {
+    bottom: 0%;
+  }
+  80% {
+    bottom: -5%;
+  }
+  85% {
+    bottom: -10%;
+  }
+  90% {
+    bottom: -15%;
+  }
+  95% {
+    bottom: -20%;
+  }
+  100% {
+    background-position: -583px;
+    bottom: -30%;
+  }
+}
+
+/* enemigos varios */
+.elemento {
+  position: absolute;
+  background-position: -112px;
+  right: 0px;
+}
+
+.aereo {
+  bottom: 300px;
+}
+
+.terrestre {
+  bottom: 95px;
+}
+
+.enemigo1 {
+  width: 97px;
+  height: 74px;
+  background: url("../img/sprites/enemigos/enemigo1.png") repeat-x;
+  animation: enemigo1 500ms steps(3) infinite, advance 3s forwards linear;
+}
+
+@keyframes enemigo1 {
   0% {
     background-position: 0;
   }
   100% {
-    background-position: -384px;
+    background-position: -297px;
   }
 }
 
-@keyframes movebgMount {
-  0% {
-    background-position: 5866px;
-  }
-  100% {
-    background-position: 0px;
-  }
+.enemigo2 {
+  width: 128px;
+  height: 92px;
+  background: url("../img/sprites/enemigos/enemigo2.png") repeat-x;
+  animation: enemigo2 500ms steps(3) infinite, advance 2.5s forwards linear;
 }
 
-@keyframes movebgGlass {
-  0% {
-    background-position: 2839px;
-  }
-  100% {
-    background-position: 0;
-  }
-}
-
-@keyframes impatient {
+@keyframes enemigo2 {
   0% {
     background-position: 0;
   }
   100% {
-    background-position: -264px;
+    background-position: -386px;
   }
 }
-@keyframes moneda {
+
+.enemigo3 {
+  width: 133px;
+  height: 77px;
+  background: url("../img/sprites/enemigos/enemigo3.png") repeat-x;
+  animation: enemigo3 500ms steps(4) infinite, advance 3s forwards linear;
+}
+
+@keyframes enemigo3 {
+  0% {
+    background-position: 0;
+  }
+  100% {
+    background-position: -532px;
+  }
+}
+
+@keyframes advance {
+  from {
+    left: 110%;
+  }
+  to {
+    left: -10%;
+  }
+}
+
+.anillo {
+  width: 88px;
+  height: 88px;
+  background: url("../img/sprites/entorno/anillo.png") repeat-x;
+  background-size: cover;
+  animation: anillo 500ms steps(16) infinite, advance 4s forwards linear;
+}
+
+@keyframes anillo {
   0% {
     background-position: 0;
   }

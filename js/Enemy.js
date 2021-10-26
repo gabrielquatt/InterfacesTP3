@@ -1,25 +1,20 @@
 class Enemy extends Character {
-  constructor(n, id) {
+  // param n: define el tipo de enemigo
+  constructor(n) {
     let element = document.createElement("div");
     let type = "enemigo";
     let clss = type + n;
-
-    // let speed = "4s";
     element.classList.add("elemento");
     element.classList.add("terrestre");
-    
-    if (n == 3) {
+    let r = Math.random();
+
+    // el enemigo 3 tiene 30% de probabilidades de ser terrestre
+    if (n == 3 && r > 0.3) {
       element.classList.remove("terrestre");
       element.classList.add("aereo");
     }
-    
+
     element.classList.add(clss);
     super(element);
-    this.id = id;
   }
-
-  getId() {
-    return this.idset;
-  }
-
 }
