@@ -7,8 +7,10 @@ _Repositorio de trabajos entregables en equipo / Meteria: Interfaces de usuario 
 - **Facundo Adrian Arana** - _Desarrollador_ - [Facundo-Arana](https://github.com/Facundo-Arana)
 - **Gabriel Matias Quattrini** - _Desarrollador_ [gabrielquatt](https://github.com/gabrielquatt)
 ------------------------------------------------------------------------------------------------
-Para este trabajo los diferentes keyframe utilizados fueron para los 3 tipos de enemigo,
-para los anillos a coleccionar y para el personaje principal siendo animaciones de correr, salto y muerte.
+
+Para este trabajo los diferentes keyframe utilizados fueron para los 3 tipos de Enemigo,
+para los Anillos a coleccionar y para el personaje principal siendo animaciones de Correr, Salto y Muerte.
+
 ------------------------------------------------------------------------------------------------
 - Link TP-1 page: https://gabrielquatt.github.io/InterfacesTP1/
 - Link TP-1 GitHub: https://github.com/gabrielquatt/InterfacesTP1
